@@ -6,21 +6,26 @@ import com.driver.model.Subscription;
 import java.util.Date;
 
 public class SubscriptionTransformer {
-    public static Subscription subscriptionDtoToSubscription(SubscriptionEntryDto subscriptionEntryDto){
+    public static Subscription subscriptionDtoToSubscription(SubscriptionEntryDto entryDto){
+//        Subscription subscription = new Subscription();
+//        subscription.setSubscriptionType(subscriptionEntryDto.getSubscriptionType());
+//        subscription.setNoOfScreensSubscribed(subscriptionEntryDto.getNoOfScreensRequired());
+//        subscription.setStartSubscriptionDate(new Date());
+//
+//        int totalAmountPaid = 0;
+//
+//        switch(subscriptionEntryDto.getSubscriptionType().toString()){
+//            case "BASIC": totalAmountPaid = 500 + (200 * subscriptionEntryDto.getNoOfScreensRequired());
+//            case "PRO": totalAmountPaid = 800 + (250 * subscriptionEntryDto.getNoOfScreensRequired());
+//            case "ELITE": totalAmountPaid = 1000 + (350 * subscriptionEntryDto.getNoOfScreensRequired());
+//        }
+//
+//        subscription.setTotalAmountPaid(totalAmountPaid);
+//
+//        return subscription;
         Subscription subscription = new Subscription();
-        subscription.setSubscriptionType(subscriptionEntryDto.getSubscriptionType());
-        subscription.setNoOfScreensSubscribed(subscriptionEntryDto.getNoOfScreensRequired());
-        subscription.setStartSubscriptionDate(new Date());
-
-        int totalAmountPaid = 0;
-
-        switch(subscriptionEntryDto.getSubscriptionType().toString()){
-            case "BASIC": totalAmountPaid = 500 + (200 * subscriptionEntryDto.getNoOfScreensRequired());
-            case "PRO": totalAmountPaid = 800 + (250 * subscriptionEntryDto.getNoOfScreensRequired());
-            case "ELITE": totalAmountPaid = 1000 + (350 * subscriptionEntryDto.getNoOfScreensRequired());
-        }
-
-        subscription.setTotalAmountPaid(totalAmountPaid);
+        subscription.setSubscriptionType(entryDto.getSubscriptionType());
+        subscription.setNoOfScreensSubscribed(entryDto.getNoOfScreensRequired());
 
         return subscription;
     }
