@@ -2,6 +2,7 @@ package com.driver.services;
 
 
 import com.driver.EntryDto.ProductionHouseEntryDto;
+import com.driver.Transformer.ProductionHouseTransformer;
 import com.driver.model.ProductionHouse;
 import com.driver.repository.ProductionHouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,8 @@ public class ProductionHouseService {
     ProductionHouseRepository productionHouseRepository;
 
     public Integer addProductionHouseToDb(ProductionHouseEntryDto productionHouseEntryDto){
-
-        return  null;
+        ProductionHouse productionHouse = ProductionHouseTransformer.productionHouseDtoToProductionHouse(productionHouseEntryDto);
+        ProductionHouse savedproductionHouse = productionHouseRepository.save(productionHouse);
+        return savedproductionHouse.getId();
     }
-
-
-
 }
